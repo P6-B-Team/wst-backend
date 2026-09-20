@@ -26,7 +26,7 @@ authRoutes.post(
       accessToken: signAccess(u),
       refreshToken: refresh.raw,
       tokenType: 'Bearer',
-      user: { id: u.id, email: u.email, displayName: u.displayName, organizationId: u.organizationId, roles: u.roles, permissions: u.permissions, studentId: u.studentId },
+      user: { id: u.id, email: u.email, displayName: u.displayName, organizationId: u.organizationId, roles: u.roles, studentId: u.studentId },
     });
   })
 );
