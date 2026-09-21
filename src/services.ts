@@ -506,6 +506,7 @@ export async function trainingRisk(organizationId: string, courseId?: string) {
     return {
       studentId: x.student_id, studentNo: x.student_no, fullName: x.full_name,
       courseId: x.course_id, courseName: x.course_name,
+      requiredTasks, signedPassed: Number(x.signed_pass),
       riskScore: score, band: score >= 60 ? 'HIGH' : score >= 30 ? 'MEDIUM' : 'LOW',
       model: MODELS.trainingRisk,
       explanation: { method: 'deterministic weighted rules (non-AI fallback)', contributions, note: 'Only SIGNED assessments count toward coverage.' },
