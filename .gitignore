@@ -1,5 +1,10 @@
-node_modules/
+
+ node_modules/
 dist/
 .env
 coverage/
 *.log
+ai_service/.venv/
+ai_service/__pycache__/
+ai_service/*.pkl
+ai_service/*.csv
