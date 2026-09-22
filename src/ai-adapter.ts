@@ -106,4 +106,4 @@ export async function withModelFallback<T>(
   } catch (e: any) {
     return rule(e?.message ?? 'AI service unavailable');
   }
-}
+} 
