@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import cookieParser from 'cookie-parser'; // <-- NEW: needed to read the httpOnly refresh-token cookie
 import crypto from 'node:crypto';
 import swaggerUi from 'swagger-ui-express';
 import { query } from './db/index.js';
@@ -39,6 +40,7 @@ app.use(cors({ origin: corsOrigins, credentials: true }));
 export const allowedCorsOrigins = corsOrigins;
 
 app.use(express.json({ limit: '2mb' }));
+app.use(cookieParser()); // <-- NEW: parses req.cookies for the auth routes
 app.use((req: any, res, next) => {
   req.requestId = (req.headers['x-request-id'] as string) || crypto.randomUUID();
   res.setHeader('X-Request-Id', req.requestId);
